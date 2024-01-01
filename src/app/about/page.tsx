@@ -7,7 +7,7 @@ export default function AboutPage() {
     return (
         <main className="flex flex-col gap-5">
             <div className={inter.className}>
-            <h2 className="font-semibold text-2xl">About Me</h2>
+                <h2 className="font-semibold text-2xl">About Me</h2>
             </div>
             <div className='w-full flex flex-col text-zinc-200'>
                 <p>
@@ -17,6 +17,6 @@ export default function AboutPage() {
                     You can find me on X <Link className="text-sky-400 hover:underline" target="blank" href="https://x.com/pranitbmane">@pranitbmane</Link>
                 </p>
             </div>
-    </main>
+        </main>
     )
 }
