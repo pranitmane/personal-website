@@ -16,13 +16,13 @@ export default function ProjectCard(props: {
 }) {
 
     return (
-        <div className="group w-full flex flex-col sm:grid sm:grid-cols-5 gap-5 rounded-xl">
+        <div className="group w-full flex flex-col sm:grid sm:grid-cols-5 gap-5 rounded-lg">
             <div className="col-span-2 relative overflow-hidden h-[250px]">
-                <div className="flex items-center justify-center transition-all w-full h-full absolute bottom-[-100%] group-hover:bottom-0 bg-gradient-to-t rounded-xl border-t-2 border-zinc-600 from-black/80 to-black/50">
+                <div className="flex items-center justify-center transition-all w-full h-full absolute bottom-[-100%] group-hover:bottom-0 bg-gradient-to-t rounded-lg border-t-2 border-zinc-600 from-black/80 to-black/50">
                     <Link target="blank" href={props.liveOrGithubLink} className="text-sky-400 hover:underline">{props.linkType}</Link>
                     <UprightArrow size={20}></UprightArrow>
                 </div>
-                <Image placeholder="blur" className="w-full h-full rounded-xl object-cover" src={props.image} alt="Image to describe the flow of project" />
+                <Image placeholder="blur" className="w-full h-full rounded-lg object-cover" src={props.image} alt="Image to describe the flow of project" />
             </div>
             <div className="col-span-3 flex flex-col">
                 <h2 className="text-lg font-semibold">{props.title}</h2>

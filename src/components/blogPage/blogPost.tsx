@@ -1,7 +1,16 @@
 import Link from "next/link"
 import ShowDate from "./showDate"
 
-export default function BlogPost(props: { title: string, excerpt: string, date: string, slug: string, category:string}) {
+type BlogPostProps = {
+  title: string,
+  excerpt: string,
+  date: string,
+  slug: string,
+  category:string
+}
+
+export default function BlogPost(props: BlogPostProps) {
+
 
   return (
     <Link 

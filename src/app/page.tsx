@@ -1,4 +1,3 @@
-
 import ProjectCard from '../components/homePage/projectCard'
 import BlogPost from '../components/blogPage/blogPost'
 import getLatestPosts from '@/services/getLatestPosts'
@@ -16,6 +15,7 @@ import GraphqlIcon from '../../public/projects/techstack/graphqlIcon'
 import pdf2csvImage from '../../public/projects/pdf2csvImage.png'
 import blogProject from '../../public/projects/blogProject.jpeg'
 import todolistAi from '../../public/projects/todolistAi.jpeg'
+import React from 'react'
 
 
 const inter = Inter({ subsets: ["latin"] });
@@ -23,11 +23,11 @@ const inter = Inter({ subsets: ["latin"] });
 
 export default async function Home() {
   const posts = await getLatestPosts()
+
   return (
     <main className='flex flex-col gap-10'>
       <section>
         <IntroCard/>
-
       </section>
       <section className='flex flex-col gap-5'>
         <div className={inter.className}>
