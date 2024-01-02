@@ -21,7 +21,7 @@ export default function BlogPost(props: BlogPostProps) {
       <div dangerouslySetInnerHTML={
         { __html: props.excerpt }
       }
-      className="text-zinc-200"
+      className="text-zinc-300"
       >
       </div>
     </Link>

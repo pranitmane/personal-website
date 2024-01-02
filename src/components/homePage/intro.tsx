@@ -12,7 +12,7 @@ export default function IntroCard() {
             <Image placeholder='blur' layout='' width={200} height={200} className='w-[50px] h-[50px] object-cover bg-sky-900 rounded-full border border-zinc-700' src={pranitPic1} alt="Pranit Image" />
             <div className='flex-1'>
                 <h1 className='text-lg font-semibold'>Pranit Mane</h1>
-                <p className='text-zinc-200'>Computer Engineering undergrad and a <span className='font-semibold text-green-300'>Fullstack</span> developer.</p>
+                <p className='text-zinc-300'>Computer Engineering undergrad and a <span className='font-semibold text-green-300'>Fullstack</span> developer.</p>
             </div>
         </Link>
     )

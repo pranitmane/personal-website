@@ -31,10 +31,10 @@ export default async function BlogPost(data: {
         <main className="w-full">
             <article className="w-full flex flex-col space-y-2 ">
                 <h1 className="text-4xl font-bold">{post.title}</h1>
-                <ShowDate className="text-zinc-200 text-sm" date={post.date} />
+                <ShowDate className="text-zinc-300 text-sm" date={post.date} />
                 <section dangerouslySetInnerHTML={
                     { __html: post.content }
-                } className="text-zinc-200 post-content flex flex-col gap-5"></section>
+                } className="text-zinc-300 post-content flex flex-col gap-5"></section>
             </article>
         </main>
     )

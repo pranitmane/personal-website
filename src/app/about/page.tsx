@@ -9,7 +9,7 @@ export default function AboutPage() {
             <div className={inter.className}>
                 <h2 className="font-semibold text-2xl">About Me</h2>
             </div>
-            <div className='w-full flex flex-col text-zinc-200'>
+            <div className='w-full flex flex-col text-zinc-300'>
                 <p>
                     Just another human being trying to make sense of the world. Intrested in everything from philosophy to physics, but find myself spending most of my time on the computer. I am a full stack developer, and currently trying my hand at React Native.
                 </p>

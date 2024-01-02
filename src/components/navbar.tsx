@@ -54,19 +54,19 @@ export default function NavBar() {
       className="p-[2px] drop-shadow bg-zinc-700 bg-opacity-60 backdrop-blur-sm backdrop-brightness-75 rounded-lg flex justify-between items-center text-white relative">
       <Link
         href="/"
-        className={basePath === "" ? "text-white text-center w-[70px] z-20" : "text-zinc-200 hover:text-white p-2 text-center w-[70px] z-20"}
+        className={basePath === "" ? "text-white text-center w-[70px] z-20" : "text-zinc-300 hover:text-white p-2 text-center w-[70px] z-20"}
       >
         Home
       </Link>
       <Link
         href="/blogs"
-        className={basePath === "blogs" ? "text-white text-center w-[70px] z-20" : "text-zinc-200 hover:text-white p-2 text-center w-[70px] z-20"}
+        className={basePath === "blogs" ? "text-white text-center w-[70px] z-20" : "text-zinc-300 hover:text-white p-2 text-center w-[70px] z-20"}
       >
         Blogs
       </Link>
       <Link
         href="/about"
-        className={basePath === "about" ? "text-white text-center w-[70px] z-20" : "text-zinc-200 hover:text-white p-2 text-center w-[70px] z-20"}
+        className={basePath === "about" ? "text-white text-center w-[70px] z-20" : "text-zinc-300 hover:text-white p-2 text-center w-[70px] z-20"}
       >
         About
       </Link>
