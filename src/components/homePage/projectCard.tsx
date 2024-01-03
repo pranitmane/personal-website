@@ -24,7 +24,7 @@ export default function ProjectCard(props: {
                 </div>
                 <Image placeholder="blur" className="w-full h-full rounded object-cover" src={props.image} alt="Image to describe the flow of project" />
             </div>
-            <div className="col-span-3 flex flex-col">
+            <div className="col-span-3 flex flex-col justify-center">
                 <h2 className="text-lg font-semibold">{props.title}</h2>
                 <p className="text-zinc-300">{props.description}</p>
                 <div className="mt-2 flex flex-row gap-2 justify-center items-center bg-zinc-500 bg-opacity-30 w-min p-2 rounded-full shadow-inner shadow-">
