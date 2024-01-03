@@ -24,7 +24,7 @@ export default function RootLayout({
         <div className='pb-20 w-full md:w-[768px]'>
           {children}
         </div>
-        <div className='w-full flex flex-row justify-center fixed bottom-2 '>
+        <div className='w-full flex flex-row justify-center fixed bottom-0 pb-2 bg-gradient-to-t from-black via-transparent to-transparent'>
           <NavBar />
         </div>
       </body>

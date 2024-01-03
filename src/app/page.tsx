@@ -4,6 +4,7 @@ import getLatestPosts from '@/services/getLatestPosts'
 import IntroCard from '../components/homePage/intro'
 import Link from 'next/link'
 import { Inter } from 'next/font/google'
+import SectionLine from '@/components/sectionLine'
 
 import NodejsIcon from '../../public/projects/techstack/nodejsIcon'
 import MongodbIcon from '../../public/projects/techstack/mongodbIcon'
@@ -31,7 +32,7 @@ export default async function Home() {
       </section>
       <section className='flex flex-col gap-5'>
         <div className={inter.className}>
-          <h2 className="text-xl font-semibold">Latest Articles</h2>
+          <SectionLine section='Latest Blogs' />
         </div>
         <div className="w-full flex flex-col gap-5">
           {posts.map((post) => (
@@ -56,7 +57,7 @@ export default async function Home() {
       </section>
       <section className='flex flex-col gap-5'>
         <div className={inter.className}>
-          <h2 className='text-xl font-semibold'>My Projects</h2>
+          <SectionLine section='My Projects' />
         </div>
         <ProjectCard title='Todo List generator using gpt-3.5' techstack={[<NodejsIcon key={0} size={20} />, <ReactIcon key={1} size={20} />, <MongodbIcon key={2} size={20} />]} description="Give it a prompt as the description of goal you want to achieve and it gives you the list of actionable Todo's, I am using Nodejs on the backend and ReactJs on frontend. The Todo's and user details are stored in Mongodb database." image={todolistAi} liveOrGithubLink='https://github.com/pranitmane/#' linkType='Github'></ProjectCard>
         <ProjectCard title='PDF To CSV using Regex' techstack={[<NodejsIcon key={0} size={20} />, <MongodbIcon key={1} size={20} />]} description='In response to a college challenge, we developed a solution for streamlined data entry. Our method involves extracting key information from PDFs, utilizing Regex for pattern recognition, and converting the data into a neat JSON object. This can then be effortlessly transformed into a CSV file, ensuring efficient and automated data management.' image={pdf2csvImage} liveOrGithubLink='https://github.com/pranitmane/pdf2csv-backend' linkType='Github'></ProjectCard>
