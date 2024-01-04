@@ -14,7 +14,7 @@ export default function IntroCard() {
             </div>
             <div className='flex-1'>
                 <h1 className='text-lg font-semibold'>Pranit Mane</h1>
-                <p className='text-zinc-300'>Computer Engineering undergrad and a <span className='font-semibold text-green-300'>Fullstack</span> developer.</p>
+                <p className='text-zinc-300'>Computer Engineering undergrad and a <span className='font-semibold underline'>Fullstack</span> developer.</p>
             </div>
         </Link>
     )
