@@ -5,9 +5,9 @@ import { usePathname,useRouter } from "next/navigation";
 import { useState, useEffect} from "react";
 
 const styles = {
-  left: "left-[2px] absolute z-10 w-[70px] h-[40px] bg-sky-700/60 rounded-lg p-2 text-center",
-  center: "left-[72px] absolute z-10 w-[70px] h-[40px] bg-sky-700/60 rounded-lg p-2 text-center",
-  right: "left-[142px] absolute z-10 w-[70px] h-[40px] bg-sky-700/60 rounded-lg p-2 text-center",
+  left: "left-[2px] absolute z-10 w-[70px] h-[40px] bg-sky-900/75 rounded-lg p-2 text-center",
+  center: "left-[72px] absolute z-10 w-[70px] h-[40px] bg-sky-900/75 rounded-lg p-2 text-center",
+  right: "left-[142px] absolute z-10 w-[70px] h-[40px] bg-sky-900/75 rounded-lg p-2 text-center",
 }
 
 export default function NavBar() {
@@ -51,22 +51,22 @@ export default function NavBar() {
 
   return (
     <nav
-      className="p-[2px] drop-shadow bg-zinc-700 bg-opacity-60 backdrop-blur-sm backdrop-brightness-75 rounded-lg flex justify-between items-center text-white relative">
+      className="p-[2px] drop-shadow bg-gray-700 bg-opacity-60 backdrop-blur-sm borde border-gray-600 backdrop-brightness-75 rounded-lg flex justify-between items-center text-white relative">
       <Link
         href="/"
-        className={basePath === "" ? "text-white text-center w-[70px] z-20" : "text-zinc-300 hover:text-white p-2 text-center w-[70px] z-20"}
+        className={basePath === "" ? "text-white text-center w-[70px] z-20" : "text-gray-300 hover:text-white p-2 text-center w-[70px] z-20"}
       >
         Home
       </Link>
       <Link
         href="/blogs"
-        className={basePath === "blogs" ? "text-white text-center w-[70px] z-20" : "text-zinc-300 hover:text-white p-2 text-center w-[70px] z-20"}
+        className={basePath === "blogs" ? "text-white text-center w-[70px] z-20" : "text-gray-300 hover:text-white p-2 text-center w-[70px] z-20"}
       >
         Blogs
       </Link>
       <Link
         href="/about"
-        className={basePath === "about" ? "text-white text-center w-[70px] z-20" : "text-zinc-300 hover:text-white p-2 text-center w-[70px] z-20"}
+        className={basePath === "about" ? "text-white text-center w-[70px] z-20" : "text-gray-300 hover:text-white p-2 text-center w-[70px] z-20"}
       >
         About
       </Link>

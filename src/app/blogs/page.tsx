@@ -12,11 +12,11 @@ export default async function BlogsPage() {
       <h1 className="text-2xl font-semibold">My Blogs</h1>
       </div>
       <div className="w-full gap-5 flex flex-col">
-        {/* <hr className="border border-zinc-600 " /> */}
+        {/* <hr className="border border-gray-600 " /> */}
         {posts.map((post) => (
           <div 
           key = {post.node.slug}
-          className="hover:scale-[1.01] transition-all ease-in-out">
+          className="">
             <BlogPost
               title={post.node.title}
               date={post.node.date}

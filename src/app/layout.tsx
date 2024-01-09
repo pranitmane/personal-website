@@ -20,11 +20,11 @@ export default function RootLayout({
 
   return (
     <html lang="en" className={GeistSans.className}>
-      <body className="bg-black p-4  text-white flex flex-col items-center">
+      <body className="bg-gray-900 p-4  text-white flex flex-col items-center">
         <div className='pb-20 w-full md:w-[768px]'>
           {children}
         </div>
-        <div className='w-full flex flex-row justify-center fixed bottom-0 pb-2 bg-gradient-to-t from-black via-transparent to-transparent'>
+        <div className='w-full flex flex-row justify-center fixed bottom-0 pb-2 bg-gradient-to-t from-gray-900 via-transparent to-transparent'>
           <NavBar />
         </div>
       </body>

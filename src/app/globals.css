@@ -13,34 +13,34 @@
         @apply list-decimal list-inside
     }
     .post-content blockquote{
-        @apply border-l-4 border-zinc-400 pl-4 italic bg-zinc-800 p-2 rounded
+        @apply border-l-4 border-gray-300 pl-4 italic bg-gray-800 p-2 rounded
     }
     .post-content figure img{
         @apply rounded pb-2
     }
     .post-content figure figcaption{
-        @apply text-sm text-zinc-500 text-center block
+        @apply text-sm text-gray-500 text-center block
     }
     .post-content h1{
-        @apply text-4xl font-bold text-zinc-100
+        @apply text-4xl font-bold text-gray-100
     }
     .post-content h2{
-        @apply text-2xl font-bold text-zinc-100
+        @apply text-2xl font-bold text-gray-100
     }
     .post-content h3{
-        @apply text-xl font-bold text-zinc-100
+        @apply text-xl font-bold text-gray-100
     }
     .post-content h4{
-        @apply text-lg font-bold text-zinc-100
+        @apply text-lg font-bold text-gray-100
     }
     .post-content h5{
-        @apply text-base font-bold text-zinc-100
+        @apply text-base font-bold text-gray-100
     }
     .post-content hr{
-        @apply border-zinc-400 my-4
+        @apply border-gray-300 my-4
     }
     .post-content pre{
-        @apply bg-zinc-800 rounded p-2 
+        @apply bg-gray-800 rounded p-2 
     }
     .post-content iframe{
         @apply rounded-lg w-full

@@ -16,12 +16,12 @@ export default function BlogPost(props: BlogPostProps) {
     <Link 
       href={`/blogs/${props.slug}`}
       className="w-full flex flex-col transition-all">
-      <ShowDate className="text-zinc-400 text-sm" date={props.date}/>
-      <h2 className="text-xl text-transparent bg-clip-text bg-gradient-to-r from-sky-200 to-sky-300 w-fit font-semibold">{props.title}</h2>
+      <ShowDate className="text-gray-400 text-sm" date={props.date}/>
+      <h2 className="text-xl hover:underline w-fit font-semibold">{props.title}</h2>
       <div dangerouslySetInnerHTML={
         { __html: props.excerpt }
       }
-      className="text-zinc-300"
+      className="text-gray-300"
       >
       </div>
     </Link>
