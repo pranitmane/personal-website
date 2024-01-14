@@ -3,6 +3,7 @@ import './globals.css'
 import NavBar from '@/components/navbar'
 import { GeistSans } from 'geist/font/sans'
 import {Inter} from 'next/font/google'
+import {Analytics} from '@vercel/analytics/react'
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -27,6 +28,7 @@ export default function RootLayout({
         <div className='w-full flex flex-row justify-center fixed bottom-0 pb-2 bg-gradient-to-t from-gray-900 via-transparent to-transparent'>
           <NavBar />
         </div>
+        <Analytics/>
       </body>
 
     </html>
