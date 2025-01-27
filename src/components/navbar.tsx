@@ -1,30 +1,24 @@
 "use client";
-
 import Link from "next/link";
-import { usePathname,useRouter } from "next/navigation";
-import { useState, useEffect} from "react";
+import { useEffect } from "react";
+import { twMerge } from 'tailwind-merge'
+import { usePathname, useRouter } from "next/navigation";
 
-const styles = {
-  left: "left-[2px] absolute z-10 w-[70px] h-[40px] bg-sky-900/75 rounded-lg p-2 text-center",
-  center: "left-[72px] absolute z-10 w-[70px] h-[40px] bg-sky-900/75 rounded-lg p-2 text-center",
-  right: "left-[142px] absolute z-10 w-[70px] h-[40px] bg-sky-900/75 rounded-lg p-2 text-center",
-}
 
 export default function NavBar() {
   const currentPathname = usePathname();
   const basePath = currentPathname.split("/")[1];
-  const [animationState, setAnimationState] = useState(styles.left);
   const router = useRouter();
-  
+
   const handleKeyPress = (e: any) => {
-    if(e.key === "h"){
+    if (e.key === "h") {
       router.push("/");
     }
-    if(e.key === "b"){
+    if (e.key === "b") {
       router.push("/blogs");
     }
-    if(e.key === "n"){
-      router.push("/about");
+    if (e.key === "p") {
+      router.push("/projects");
     }
   }
 
@@ -38,44 +32,17 @@ export default function NavBar() {
     };
   });
 
-  useEffect(() => {
-    // const basePath = currentPathname.split("/")[1];
-    if (basePath === "") {
-      setAnimationState(styles.left);
-    } else if (basePath === "blogs") {
-      setAnimationState(styles.center);
-    } else if (basePath === "about") {
-      setAnimationState(styles.right);
-    }
-  }, [basePath]);
-
   return (
-    <nav
-      className="p-[2px] drop-shadow bg-gray-700 bg-opacity-60 backdrop-blur-sm borde border-gray-600 backdrop-brightness-75 rounded-lg flex justify-between items-center text-white relative">
-      <Link
-        href="/"
-        className={basePath === "" ? "text-white text-center w-[70px] z-20" : "text-gray-300 hover:text-white p-2 text-center w-[70px] z-20"}
-      >
-        Home
+    <nav className="w-full sm:w-[640px] text-sm flex gap-3 items-center">
+      <Link href="/" className={twMerge("text-secondaryTxt hover:text-hyperlinkHover", basePath === "" ? "text-hyperlinkHover" : "")}>
+        home [h]
       </Link>
-      <Link
-        href="/blogs"
-        className={basePath === "blogs" ? "text-white text-center w-[70px] z-20" : "text-gray-300 hover:text-white p-2 text-center w-[70px] z-20"}
-      >
-        Blogs
+      <Link href="/projects" className={twMerge("text-secondaryTxt hover:text-hyperlinkHover", basePath === "projects" ? "text-hyperlinkHover" : "")}>
+        projects [p]
       </Link>
-      <Link
-        href="/about"
-        className={basePath === "about" ? "text-white text-center w-[70px] z-20" : "text-gray-300 hover:text-white p-2 text-center w-[70px] z-20"}
-      >
-        About
+      <Link href="/blogs" className={twMerge("text-secondaryTxt hover:text-hyperlinkHover", basePath === "blogs" ? "text-hyperlinkHover" : "")}>
+        blogs [b]
       </Link>
-      <div className={animationState} style={
-        {
-          transition: "left 0.2s ease-in-out",
-        }
-      }>
-      </div>
     </nav>
   )
 }

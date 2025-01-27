@@ -8,13 +8,15 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-      },
-      dropShadow: {
-        glow: [
-          "0 0px 40px rgba(255,255, 255, 0.35)",
-          "0 0px 65px rgba(255, 255,255, 0.2)"
-        ]
+      colors:{
+        primary:'var(--bg-primary)',
+        primaryTxt:'var(--text-primary)',
+        secondaryTxt:'var(--text-secondary)',
+        tertiaryTxt:'var(--text-tertiary)',
+        hyperlink:'var(--text-hyperlink)',
+        hyperlinkHover:'var(--text-hyperlink-hover)',
+        highlightTxt:'var(--text-highlight)',
+        borderPrimary:'var(--border-primary)', 
       }
     },
   },

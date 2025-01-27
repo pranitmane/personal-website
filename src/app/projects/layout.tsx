@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'About | Pranit Mane',
-  description: 'Software engineer, Fullstack developer, and a student.',
+  title: 'Projects | Pranit Mane',
+  description: 'Projects I have worked on',
 }
 
 export default function AboutLayout({

@@ -1,75 +1,122 @@
+import Link from 'next/link'
+// import { GeistSans } from 'geist/font/sans'
+import { twMerge } from 'tailwind-merge'
+import { Oswald } from 'next/font/google'
+
+const oswald = Oswald({ weight: "600", subsets: ["latin"] })
+
+
+
 import ProjectCard from '../components/homePage/projectCard'
 import BlogPost from '../components/blogPage/blogPost'
-import getLatestPosts from '@/services/getLatestPosts'
-import IntroCard from '../components/homePage/intro'
-import IntroCard2 from '@/components/homePage/intro2'
-import Link from 'next/link'
-import { Inter } from 'next/font/google'
-import SectionLine from '@/components/sectionLine'
-import ContactMe from '@/components/contact'
-
-import NodejsIcon from '../../public/projects/techstack/nodejsIcon'
-import MongodbIcon from '../../public/projects/techstack/mongodbIcon'
-import ReactIcon from '../../public/projects/techstack/reactIcon'
-import TypescriptIcon from '../../public/projects/techstack/typescriptIcon'
-import NextjsIcon from '../../public/projects/techstack/nextjsIcon'
-import GraphqlIcon from '../../public/projects/techstack/graphqlIcon'
-
-import pdf2csvImage from '../../public/projects/pdf2csvImage.png'
-import blogProject from '../../public/projects/blogProject.jpeg'
-import todolistAi from '../../public/projects/todolistAi.jpeg'
-import React from 'react'
+import Intro from '../components/homePage/intro'
 
 
-const inter = Inter({ subsets: ["latin"] });
+const projects: Array<React.ComponentProps<typeof ProjectCard>> = [
+  {
+    title: 'YT Music Remote',
+    githubLink: 'https://github.com/pranitmane/ytm-remote',
+    description: "a chrome extension that allows you to control music from your phone.",
+    techstack: ["Web-Sockets", "Chrome Extensions", "Reactjs", "Typescript"],
+    gradient: 'bg-gradient-to-b from-[#1c1616] to-[#191919]',
+  },
+  {
+    title: 'PDF to CSV using Regex',
+    githubLink: 'https://github.com/pranitmane/pdf2csv-backend',
+    description: "automated manual data entry work using regex, to extract keys from pdf and convert to csv.",
+    techstack: ["Regex", "Expressjs", "Mongodb"],
+    gradient: 'bg-gradient-to-b from-[#161a1c] to-[#191919]',
+  },
+]
 
 
 export default async function Home() {
-  const posts = await getLatestPosts()
+  const posts = [
+      {
+        title: 'Understanding React Hooks',
+        date: '2023-10-01',
+        slug: 'understanding-react-hooks',
+        categories: {
+          edges: [
+            {
+              node: {
+                name: 'React',
+              },
+            },
+          ],
+        },
+      },
+      {
+        title: 'A Guide to Next.js',
+        date: '2023-09-15',
+        slug: 'guide-to-nextjs',
+        categories: {
+          edges: [
+            {
+              node: {
+                name: 'Next.js',
+              },
+            },
+          ],
+        },
+      },
+    ]
 
   return (
-    <main className='flex flex-col gap-10'>
-      <section>
-        {/* <IntroCard/> */}
-        <IntroCard2/>
-      </section>
-      <section className='flex flex-col gap-5'>
-        <div className={inter.className}>
-          <SectionLine section='Latest Blogs' />
+    <main className='flex flex-col gap-24'>
+      <Intro />
+      <section className='flex flex-col gap-7'>
+        <div className='flex flex-row justify-between items-center'>
+          <h3 className={twMerge(oswald.className, 'text-xl font-semibold')}>My Work</h3>
+          <ViewAllButton href="/projects" />
         </div>
-        <div className="w-full flex flex-col gap-5">
+        <div className='flex flex-row flex-wrap gap-6 sm:gap-3'>
+          {projects.map((project) => (
+            <ProjectCard
+              key={project.title}
+              className={'flex-1 min-w-[300px]'}
+              gradient={project.gradient}
+              title={project.title}
+              description={project.description}
+              techstack={project.techstack}
+              githubLink={project.githubLink}
+              liveLink={project.liveLink}
+            />
+          ))}
+        </div>
+      </section>
+      <section className='flex flex-col gap-7'>
+        <div className='flex flex-row justify-between items-center'>
+          <h3 className={twMerge(oswald.className, 'text-xl font-semibold')}>Latest Blogs</h3>
+          <ViewAllButton href="/blogs" />
+        </div>
+        <div className="w-full flex flex-col gap-3">
           {posts.map((post) => (
             <div
               key={post.slug}
-              className=''>
+              className='flex flex-col gap-3'>
               <BlogPost
                 title={post.title}
                 date={post.date}
-                excerpt={post.excerpt}
                 slug={post.slug}
                 category={post.categories.edges[0].node.name}
               />
+              <div
+                className="w-full h-[1px] bg-none"
+                style={{
+                  backgroundImage: 'repeating-linear-gradient(to right, transparent, transparent 5px, #404040 4px, #404040 10px)',
+                }}
+              ></div>
             </div>
           ))}
-          <Link
-            href="/blogs"
-            className="w-fit rounded-full p-2 text-sky-300 flex flex-col hover:bg-gray-800 transition-all">
-            show more
-          </Link>
         </div>
-      </section>
-      <section className='flex flex-col gap-5'>
-        <div className={inter.className}>
-          <SectionLine section='My Projects' />
-        </div>
-        <ProjectCard title='Todo List generator using gpt-3.5' techstack={[<NodejsIcon key={0} size={20} />, <ReactIcon key={1} size={20} />, <MongodbIcon key={2} size={20} />]} description="Give it a prompt as the description of goal you want to achieve and it gives you the list of actionable Todo's, I am using Nodejs on the backend and ReactJs on frontend. The Todo's and user details are stored in Mongodb database." image={todolistAi} liveOrGithubLink='https://github.com/pranitmane/#' linkType='Github'></ProjectCard>
-        <ProjectCard title='PDF To CSV using Regex' techstack={[<NodejsIcon key={0} size={20} />, <MongodbIcon key={1} size={20} />]} description='In response to a college challenge, we developed a solution for streamlined data entry. Our method involves extracting key information from PDFs, utilizing Regex for pattern recognition, and converting the data into a neat JSON object which is then converted into xls file' image={pdf2csvImage} liveOrGithubLink='https://github.com/pranitmane/pdf2csv-backend' linkType='Github'></ProjectCard>
-        <ProjectCard title='A Blog website' techstack={[<NextjsIcon key={0} size={20} />, <ReactIcon key={1} size={20} />,<TypescriptIcon key={2} size={20}/>,<GraphqlIcon key={3} size={20}/>]} description="Fast and Scalable blog website made using Nextjs with Wordpress as headless CMS. It uses GraphQL and on demand revalidation introduced in nextjs 14" image={blogProject} liveOrGithubLink="https://pranitmane.com/blogs" linkType="Live"></ProjectCard>
-      </section>
-      <section className='flex flex-col gap-5'>
-        <SectionLine section='Contact Me'/>
-        <ContactMe/>
       </section>
     </main>
+  )
+}
+
+function ViewAllButton({ href }: { href: string }) {
+  return (
+    <Link href={href} className='border border-borderPrimary bg-transparent hover:bg-borderPrimary rounded-full p-1 px-2 self-center text-sm'>View all</Link>
   )
 }

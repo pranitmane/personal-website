@@ -15,7 +15,7 @@ export default async function BlogPost(data: {
             <main className="justify-center flex flex-col items-center">
                 <div className="w-full p-2  flex flex-row gap-5 items-center justify-center">
                     <h1 className="text-2xl font-bold">404</h1>
-                    <h2 className="text-xl p-2 font-bold  border-l-2 border-gray-300">Post not found</h2>
+                    <h2 className="text-xl p-2 font-bold  border-l-2 border-borderPrimary">Post not found</h2>
                 </div>
                 <p className="flex flex-row gap-1">Go back to
                     <span>
@@ -30,11 +30,11 @@ export default async function BlogPost(data: {
     return (
         <main className="w-full">
             <article className="w-full flex flex-col space-y-2 ">
-                <h1 className="text-4xl font-bold">{post.title}</h1>
-                <ShowDate className="text-gray-300 text-sm" date={post.date} />
+                <h1 className="">{post.title}</h1>
+                <ShowDate className="text-tertiaryTxt text-sm" date={post.date} />
                 <section dangerouslySetInnerHTML={
                     { __html: post.content }
-                } className="text-gray-300 post-content flex flex-col gap-5"></section>
+                } className="text-textSecondary post-content flex flex-col gap-5"></section>
             </article>
         </main>
     )

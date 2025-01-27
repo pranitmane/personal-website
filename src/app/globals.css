@@ -13,38 +13,51 @@
         @apply list-decimal list-inside
     }
     .post-content blockquote{
-        @apply border-l-4 border-gray-300 pl-4 italic bg-gray-800 p-2 rounded
+        @apply border-l-4 border-neutral-300 pl-4 italic bg-neutral-800 p-2 rounded
     }
     .post-content figure img{
         @apply rounded pb-2
     }
     .post-content figure figcaption{
-        @apply text-sm text-gray-500 text-center block
+        @apply text-sm text-neutral-500 text-center block
     }
     .post-content h1{
-        @apply text-4xl font-bold text-gray-100
+        @apply text-4xl font-bold text-neutral-100
     }
     .post-content h2{
-        @apply text-2xl font-bold text-gray-100
+        @apply text-2xl font-bold text-neutral-100
     }
     .post-content h3{
-        @apply text-xl font-bold text-gray-100
+        @apply text-xl font-bold text-neutral-100
     }
     .post-content h4{
-        @apply text-lg font-bold text-gray-100
+        @apply text-lg font-bold text-neutral-100
     }
     .post-content h5{
-        @apply text-base font-bold text-gray-100
+        @apply text-base font-bold text-neutral-100
     }
     .post-content hr{
-        @apply border-gray-300 my-4
+        @apply border-neutral-300 my-4
     }
     .post-content pre{
-        @apply bg-gray-800 rounded p-2 
+        @apply bg-neutral-800 rounded p-2 
     }
     .post-content iframe{
         @apply rounded-lg w-full
     }
 
+}
+
+@layer base{
+    .darkTheme{
+        --bg-primary:hsla(0, 0%, 0%, 1);
+        --text-primary:hsla(0, 0%, 95%, 1);
+        --text-secondary:hsla(0, 0%,85%, 1);
+        --text-tertiary:hsla(0, 0%, 75%, 1);
+        --text-highlight:hsla(150, 95%, 75%, 1);
+        --text-hyperlink:hsla(210, 100%, 85%, 1);
+        --text-hyperlink-hover:hsla(210, 100%, 75%, 1);
+        --border-primary:hsla(0, 0%, 20%, 1);
+    }
 }
 

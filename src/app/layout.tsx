@@ -1,11 +1,12 @@
 import type { Metadata } from 'next'
 import './globals.css'
 import NavBar from '@/components/navbar'
-import { GeistSans } from 'geist/font/sans'
-import {Inter} from 'next/font/google'
-import {Analytics} from '@vercel/analytics/react'
+import { Inter, Open_Sans} from 'next/font/google'
+import { Analytics } from '@vercel/analytics/react'
+import SocialLinks from '@/components/socialLinks'
 
 const inter = Inter({ subsets: ["latin"] })
+const open_sans = Open_Sans({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
   title: 'Pranit Mane',
@@ -20,15 +21,17 @@ export default function RootLayout({
 
 
   return (
-    <html lang="en" className={GeistSans.className}>
-      <body className="bg-gray-900 p-4  text-white flex flex-col items-center">
-        <div className='pb-20 w-full md:w-[768px]'>
+    <html lang="en" className={open_sans.className}>
+      <body className="darkTheme flex flex-col gap-24 items-center justify-center p bg-primary text-primaryTxt p-4">
+        <NavBar />
+        <div className='w-full sm:w-[640px]'>
           {children}
         </div>
-        <div className='w-full flex flex-row justify-center fixed bottom-0 pb-2 bg-gradient-to-t from-gray-900 via-transparent to-transparent'>
-          <NavBar />
-        </div>
-        <Analytics/>
+        <section className='flex flex-col flex-1 justify-end w-full sm:w-[640px] gap-5'>
+          <hr className='border-borderPrimary' />
+          <SocialLinks />
+        </section>
+        <Analytics />
       </body>
 
     </html>
