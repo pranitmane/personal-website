@@ -45,6 +45,9 @@
     .post-content iframe{
         @apply rounded-lg w-full
     }
+    .bg-gradient-test {
+        @apply bg-gradient-to-br from-[#161a1c] to-[#191919];
+      }      
 
 }
 
@@ -56,7 +59,7 @@
         --text-tertiary:hsla(0, 0%, 75%, 1);
         --text-highlight:hsla(150, 95%, 75%, 1);
         --text-hyperlink:hsla(210, 100%, 85%, 1);
-        --text-hyperlink-hover:hsla(210, 100%, 75%, 1);
+        --text-hyperlink-hover:hsl(210, 100%, 75%);
         --border-primary:hsla(0, 0%, 20%, 1);
     }
 }

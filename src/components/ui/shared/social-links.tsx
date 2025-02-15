@@ -1,9 +1,8 @@
 'use client'
-import { useState } from 'react'
-import Link from "next/link"
-import TwitterLogo from "../../public/socialMedia/TwitterLogo"
-import GithubLogo from "../../public/socialMedia/GithubLogo"
-import YoutubeLogo from "../../public/socialMedia/YoutubeLogo"
+import { useState } from 'react'  
+import TwitterLogo from "../icons/twitter-logo"
+import GithubLogo from "../icons/github-logo"
+import YoutubeLogo from "../icons/youtube-logo"
 
 const socialLinks = [
     {

@@ -1,11 +1,10 @@
 import type { Metadata } from 'next'
 import './globals.css'
-import NavBar from '@/components/navbar'
-import { Inter, Open_Sans} from 'next/font/google'
+import NavBar from '@/components/ui/shared/navbar'
+import { Open_Sans } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/react'
-import SocialLinks from '@/components/socialLinks'
+import SocialLinks from '@/components/ui/shared/social-links'
 
-const inter = Inter({ subsets: ["latin"] })
 const open_sans = Open_Sans({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
@@ -33,7 +32,6 @@ export default function RootLayout({
         </section>
         <Analytics />
       </body>
-
     </html>
   )
 }

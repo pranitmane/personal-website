@@ -1,66 +1,59 @@
 import Link from 'next/link'
-// import { GeistSans } from 'geist/font/sans'
 import { twMerge } from 'tailwind-merge'
-import { Oswald } from 'next/font/google'
+import { Oswald,Open_Sans} from 'next/font/google'
 
 const oswald = Oswald({ weight: "600", subsets: ["latin"] })
+const open_sans = Open_Sans({ subsets: ["latin"] })
 
-
-
-import ProjectCard from '../components/homePage/projectCard'
-import BlogPost from '../components/blogPage/blogPost'
-import Intro from '../components/homePage/intro'
-
-
-const projects: Array<React.ComponentProps<typeof ProjectCard>> = [
-  {
-    title: 'YT Music Remote',
-    githubLink: 'https://github.com/pranitmane/ytm-remote',
-    description: "a chrome extension that allows you to control music from your phone.",
-    techstack: ["Web-Sockets", "Chrome Extensions", "Reactjs", "Typescript"],
-    gradient: 'bg-gradient-to-b from-[#1c1616] to-[#191919]',
-  },
-  {
-    title: 'PDF to CSV using Regex',
-    githubLink: 'https://github.com/pranitmane/pdf2csv-backend',
-    description: "automated manual data entry work using regex, to extract keys from pdf and convert to csv.",
-    techstack: ["Regex", "Expressjs", "Mongodb"],
-    gradient: 'bg-gradient-to-b from-[#161a1c] to-[#191919]',
-  },
-]
+import ProjectCard from '@/components/feature/project-card'
+import BlogPost from '@/components/feature/blog-post'
+import { projects } from '@/data/projects/projects'
 
 
 export default async function Home() {
-  const posts = [
-      {
-        title: 'Understanding React Hooks',
-        date: '2023-10-01',
-        slug: 'understanding-react-hooks',
-        categories: {
-          edges: [
-            {
-              node: {
-                name: 'React',
-              },
+  type Post = {
+    title: string;
+    date: string;
+    slug: string;
+    categories: {
+      edges: {
+        node: {
+          name: string;
+        };
+      }[];
+    };
+  };
+
+  const posts: Post[] = [
+    {
+      title: 'What do i plan to write here?',
+      date: '2024-01-23',
+      slug: 'what-do-i-plan-to-write-here',
+      categories: {
+        edges: [
+          {
+            node: {
+              name: 'React',
             },
-          ],
-        },
+          },
+        ],
       },
-      {
-        title: 'A Guide to Next.js',
-        date: '2023-09-15',
-        slug: 'guide-to-nextjs',
-        categories: {
-          edges: [
-            {
-              node: {
-                name: 'Next.js',
-              },
+    },
+    {
+      title: 'Developer trying to design',
+      date: '2024-01-03',
+      slug: 'developer-trying-to-design',
+      categories: {
+        edges: [
+          {
+            node: {
+              name: 'Next.js',
             },
-          ],
-        },
+          },
+        ],
       },
-    ]
+    },
+  ];
 
   return (
     <main className='flex flex-col gap-24'>
@@ -70,19 +63,18 @@ export default async function Home() {
           <h3 className={twMerge(oswald.className, 'text-xl font-semibold')}>My Work</h3>
           <ViewAllButton href="/projects" />
         </div>
-        <div className='flex flex-row flex-wrap gap-6 sm:gap-3'>
-          {projects.map((project) => (
+        <div className='flex flex-row flex-wrap gap-3'>
+            {projects.filter(project => project.featured).map((project) => (
             <ProjectCard
               key={project.title}
-              className={'flex-1 min-w-[300px]'}
-              gradient={project.gradient}
+              className={twMerge('flex-1 min-w-[300px] ', project.className)}
               title={project.title}
               description={project.description}
               techstack={project.techstack}
               githubLink={project.githubLink}
               liveLink={project.liveLink}
             />
-          ))}
+            ))}
         </div>
       </section>
       <section className='flex flex-col gap-7'>
@@ -118,5 +110,22 @@ export default async function Home() {
 function ViewAllButton({ href }: { href: string }) {
   return (
     <Link href={href} className='border border-borderPrimary bg-transparent hover:bg-borderPrimary rounded-full p-1 px-2 self-center text-sm'>View all</Link>
+  )
+}
+
+function Intro() {
+  return (
+    <section className="w-full flex flex-col gap-3 justify-center" >
+      <h1 className="text-xl">Hi, I am <span className="text-highlightTxt">Pranit</span></h1>
+      <h2 className="text-3xl font-bold">
+        I build <span className="text-highlightTxt">Full-stack</span> apps
+      </h2>
+      <p className="" >
+        I am passionate about building scalable software that solves real-world problems. I have worked on a variety of projects, including <span className="text-highlightTxt">Apps, Websites, Chrome extensions,</span> and automation scripts.
+      </p>
+      <p className="" >
+        Currently, I am exploring <span className="text-highlightTxt">System design & DevOps</span> and enjoy sharing my learnings through blogs and on X.
+      </p>
+    </section>
   )
 }

@@ -1,6 +1,5 @@
 import { twMerge } from "tailwind-merge"
-import BlogPost from "@/components/blogPage/blogPost"
-// import { GeistSans } from "geist/font/sans";
+import BlogPost from "@/components/feature/blog-post"
 import { Oswald } from 'next/font/google'
 
 const oswald = Oswald({ weight: "600", subsets: ["latin"] })
@@ -10,9 +9,9 @@ export default async function BlogsPage() {
   const posts = [
     {
       node: {
-        title: 'Understanding React Hooks',
-        date: '2023-10-01',
-        slug: 'understanding-react-hooks',
+        title: 'What do i plan to write here?',
+        date: '2024-01-23',
+        slug: 'what-do-i-plan-to-write-here',
         categories: {
           edges: [
             {
@@ -26,9 +25,9 @@ export default async function BlogsPage() {
     },
     {
       node: {
-        title: 'A Guide to Next.js',
-        date: '2023-09-15',
-        slug: 'guide-to-nextjs',
+        title: 'Developer trying to design',
+        date: '2024-01-03',
+        slug: 'developer-trying-to-design',
         categories: {
           edges: [
             {

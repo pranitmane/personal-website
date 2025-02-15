@@ -1,5 +1,5 @@
 import Link from "next/link"
-import ShowDate from "./showDate"
+import ShowDate from "./show-date"
 
 type BlogPostProps = {
   title: string,
