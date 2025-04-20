@@ -3,6 +3,11 @@ import Link from "next/link";
 import { useEffect } from "react";
 import { twMerge } from 'tailwind-merge'
 import { usePathname, useRouter } from "next/navigation";
+import { Pacifico } from "next/font/google";
+const pacifico = Pacifico({
+  subsets: ["latin"],
+  weight: "400",
+});
 
 
 export default function NavBar() {
@@ -33,16 +38,19 @@ export default function NavBar() {
   });
 
   return (
-    <nav className="w-full sm:w-[640px] text-sm flex gap-3 items-center">
-      <Link href="/" className={twMerge("text-secondaryTxt hover:text-hyperlinkHover", basePath === "" ? "text-hyperlinkHover" : "")}>
-        home [h]
-      </Link>
-      <Link href="/projects" className={twMerge("text-secondaryTxt hover:text-hyperlinkHover", basePath === "projects" ? "text-hyperlinkHover" : "")}>
-        projects [p]
-      </Link>
-      <Link href="/blogs" className={twMerge("text-secondaryTxt hover:text-hyperlinkHover", basePath === "blogs" ? "text-hyperlinkHover" : "")}>
-        blogs [b]
-      </Link>
+    <nav className="w-full sm:w-[640px] text-sm flex justify-between">
+      <p className={pacifico.className}>Pranit</p>
+      <div className="flex gap-3">
+        <Link href="/" className={twMerge("text-secondaryTxt hover:text-hyperlinkHover", basePath === "" ? "text-hyperlinkHover underline underline-offset-2" : "")}>
+          home
+        </Link>
+        <Link href="/projects" className={twMerge("text-secondaryTxt hover:text-hyperlinkHover", basePath === "projects" ? "text-hyperlinkHover underline underline-offset-2" : "")}>
+          projects
+        </Link>
+        <Link href="/blogs" className={twMerge("text-secondaryTxt hover:text-hyperlinkHover", basePath === "blogs" ? "text-hyperlinkHover underline underline-offset-2" : "")}>
+          blogs
+        </Link>
+      </div>
     </nav>
   )
 }
