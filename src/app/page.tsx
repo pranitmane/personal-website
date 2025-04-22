@@ -1,9 +1,8 @@
 import Link from 'next/link'
 import { twMerge } from 'tailwind-merge'
-import { Oswald,Open_Sans} from 'next/font/google'
+import { Oswald } from 'next/font/google'
 
 const oswald = Oswald({ weight: "600", subsets: ["latin"] })
-const open_sans = Open_Sans({ subsets: ["latin"] })
 
 import ProjectCard from '@/components/feature/project-card'
 import BlogPost from '@/components/feature/blog-post'
@@ -60,11 +59,11 @@ export default async function Home() {
       <Intro />
       <section className='flex flex-col gap-7'>
         <div className='flex flex-row justify-between items-center'>
-          <h3 className={twMerge(oswald.className, 'text-xl font-semibold')}>My Work</h3>
+          <h3 className={twMerge(oswald.className, 'text-2xl font-semibold')}>My Work</h3>
           <ViewAllButton href="/projects" />
         </div>
         <div className='flex flex-row flex-wrap gap-3'>
-            {projects.filter(project => project.featured).map((project) => (
+          {projects.filter(project => project.featured).map((project) => (
             <ProjectCard
               key={project.title}
               className={twMerge('flex-1 min-w-[300px] ', project.className)}
@@ -74,12 +73,12 @@ export default async function Home() {
               githubLink={project.githubLink}
               liveLink={project.liveLink}
             />
-            ))}
+          ))}
         </div>
       </section>
       <section className='flex flex-col gap-7'>
         <div className='flex flex-row justify-between items-center'>
-          <h3 className={twMerge(oswald.className, 'text-xl font-semibold')}>Latest Blogs</h3>
+          <h3 className={twMerge(oswald.className, 'text-2xl font-semibold')}>Latest Blogs</h3>
           <ViewAllButton href="/blogs" />
         </div>
         <div className="w-full flex flex-col gap-3">
@@ -109,7 +108,7 @@ export default async function Home() {
 
 function ViewAllButton({ href }: { href: string }) {
   return (
-    <Link href={href} className='border border-borderPrimary bg-transparent hover:bg-borderPrimary rounded-full p-1 px-2 self-center text-sm'>View all</Link>
+    <Link href={href} className='border border-borderPrimary bg-transparent hover:bg-borderPrimary rounded-full p-[2px] px-2 self-center text-sm text-secondaryTxt'>View all</Link>
   )
 }
 
