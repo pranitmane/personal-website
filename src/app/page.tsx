@@ -1,8 +1,7 @@
 import Link from 'next/link'
 import { twMerge } from 'tailwind-merge'
-import { Oswald } from 'next/font/google'
 
-const oswald = Oswald({ weight: "600", subsets: ["latin"] })
+
 
 import ProjectCard from '@/components/feature/project-card'
 import BlogPost from '@/components/feature/blog-post'
@@ -59,7 +58,7 @@ export default async function Home() {
       <Intro />
       <section className='flex flex-col gap-7'>
         <div className='flex flex-row justify-between items-center'>
-          <h3 className={twMerge(oswald.className, 'text-2xl font-semibold')}>My Work</h3>
+          <h3 className={twMerge('text-2xl font-semibold')}>My Work</h3>
           <ViewAllButton href="/projects" />
         </div>
         <div className='flex flex-row flex-wrap gap-3'>
@@ -78,7 +77,7 @@ export default async function Home() {
       </section>
       <section className='flex flex-col gap-7'>
         <div className='flex flex-row justify-between items-center'>
-          <h3 className={twMerge(oswald.className, 'text-2xl font-semibold')}>Latest Blogs</h3>
+          <h3 className={twMerge('text-2xl font-semibold')}>Latest Blogs</h3>
           <ViewAllButton href="/blogs" />
         </div>
         <div className="w-full flex flex-col gap-3">
