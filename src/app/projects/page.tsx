@@ -8,7 +8,7 @@ const oswald = Oswald({ weight: "600", subsets: ["latin"] })
 
 export default function AboutPage() {
     return (
-        <main className="flex flex-col gap-24">
+        <main className="flex flex-col gap-20">
             <h1 className={twMerge("text-4xl font-semibold text-center", oswald.className)}>Projects 🛠️</h1>
             <div className='flex flex-row flex-wrap gap-3'>
                 {projects.map((project) => (

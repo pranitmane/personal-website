@@ -55,7 +55,7 @@ export default async function Home() {
   ];
 
   return (
-    <main className='flex flex-col gap-24'>
+    <main className='flex flex-col gap-20'>
       <Intro />
       <section className='flex flex-col gap-7'>
         <div className='flex flex-row justify-between items-center'>
@@ -114,7 +114,7 @@ function ViewAllButton({ href }: { href: string }) {
 
 function Intro() {
   return (
-    <section className="w-full flex flex-col gap-3 justify-center" >
+    <section className="w-full flex flex-col gap-1 justify-center" >
       <h1 className="text-xl">Hi, I am <span className="text-highlightTxt">Pranit</span></h1>
       <h2 className="text-3xl font-bold">
         I build <span className="text-highlightTxt">Full-stack</span> apps

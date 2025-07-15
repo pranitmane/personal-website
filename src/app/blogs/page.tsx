@@ -41,7 +41,7 @@ export default async function BlogsPage() {
     },
   ]
   return (
-    <main className="flex flex-col gap-24">
+    <main className="flex flex-col gap-20">
       <h1 className={twMerge("text-4xl font-semibold text-center", oswald.className)}>Writings 🖊️</h1>
       <div className="w-full flex flex-col gap-3">
         {posts.map((post) => (
