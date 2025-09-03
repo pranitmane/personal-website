@@ -5,15 +5,14 @@ import { twMerge } from 'tailwind-merge'
 
 
 
-export default function AboutPage() {
+export default function ProjectsPage() {
     return (
         <main className="flex flex-col gap-20">
-            <h1 className={twMerge("text-4xl font-semibold text-center")}>Projects 🛠️</h1>
+            <h1 className={twMerge("text-4xl font-semibold text-center")}>Projects</h1>
             <div className='flex flex-row flex-wrap gap-3'>
                 {projects.map((project) => (
                     <ProjectCard
-                        key={project.className}
-                        className={`flex-1 min-w-[300px] ${project.className}`}
+                        key={project.title}
                         title={project.title}
                         description={project.description}
                         techstack={project.techstack}

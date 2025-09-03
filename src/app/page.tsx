@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { twMerge } from 'tailwind-merge'
+import { twMerge } from 'tailwind-merge'  
 
 
 
@@ -65,7 +65,6 @@ export default async function Home() {
           {projects.filter(project => project.featured).map((project) => (
             <ProjectCard
               key={project.title}
-              className={twMerge('flex-1 min-w-[300px] ', project.className)}
               title={project.title}
               description={project.description}
               techstack={project.techstack}
@@ -77,8 +76,8 @@ export default async function Home() {
       </section>
       <section className='flex flex-col gap-7'>
         <div className='flex flex-row justify-between items-center'>
-          <h3 className={twMerge('text-2xl font-semibold')}>Latest Blogs</h3>
-          <ViewAllButton href="/blogs" />
+          <h3 className={twMerge('text-2xl font-semibold')}>Recent Posts</h3>
+          <ViewAllButton href="/blog" />
         </div>
         <div className="w-full flex flex-col gap-3">
           {posts.map((post) => (
@@ -122,7 +121,7 @@ function Intro() {
         I am passionate about building scalable software that solves real-world problems. I have worked on a variety of projects, including <span className="text-highlightTxt">Apps, Websites, Chrome extensions,</span> and automation scripts.
       </p>
       <p className="" >
-        Currently, I am exploring <span className="text-highlightTxt">System design & DevOps</span> and enjoy sharing my learnings through blogs and on X.
+        Currently, I am exploring <span className="text-highlightTxt">System design & DevOps</span> and enjoy sharing my learnings through blog and on X.
       </p>
     </section>
   )

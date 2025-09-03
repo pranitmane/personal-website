@@ -2,9 +2,9 @@ import ShowDate from "@/components/feature/show-date"
 import { notFound } from 'next/navigation'
 
 export default async function BlogPost(data: {
-    params: {
+    params: Promise<{
         slug: string
-    }
+    }>
 }) {
     type Post = {
         title: string;

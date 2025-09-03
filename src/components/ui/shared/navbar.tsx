@@ -20,7 +20,7 @@ export default function NavBar() {
       router.push("/");
     }
     if (e.key === "b") {
-      router.push("/blogs");
+      router.push("/blog");
     }
     if (e.key === "p") {
       router.push("/projects");
@@ -41,14 +41,14 @@ export default function NavBar() {
     <nav className="w-full sm:w-[640px] text-sm flex justify-between">
       <p className={pacifico.className}>Pranit</p>
       <div className="flex gap-3">
-        <Link href="/" className={twMerge("text-secondaryTxt hover:text-hyperlinkHover", basePath === "" ? "text-hyperlinkHover underline underline-offset-2" : "")}>
+        <Link href="/" className={twMerge("text-secondaryTxt hover:text-hyperlinkHover", basePath === "" ? "text-hyperlinkHover" : "")}>
           home
         </Link>
-        <Link href="/projects" className={twMerge("text-secondaryTxt hover:text-hyperlinkHover", basePath === "projects" ? "text-hyperlinkHover underline underline-offset-2" : "")}>
+        <Link href="/projects" className={twMerge("text-secondaryTxt hover:text-hyperlinkHover", basePath === "projects" ? "text-hyperlinkHover" : "")}>
           projects
         </Link>
-        <Link href="/blogs" className={twMerge("text-secondaryTxt hover:text-hyperlinkHover", basePath === "blogs" ? "text-hyperlinkHover underline underline-offset-2" : "")}>
-          blogs
+        <Link href="/blog" className={twMerge("text-secondaryTxt hover:text-hyperlinkHover", basePath === "blog" ? "text-hyperlinkHover" : "")}>
+          blog
         </Link>
       </div>
     </nav>

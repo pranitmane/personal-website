@@ -11,7 +11,7 @@ type BlogPostProps = {
 export default function BlogPost(props: BlogPostProps) {
   return (
     <Link
-      href={`/blogs/${props.slug}`}
+      href={`/blog/${props.slug}`}
       className="w-full flex flex-row justify-between items-center">
       <h2 className="text-lg w-fit font-medium hover:text-hyperlinkHover">{props.title}</h2>
       <ShowDate className="text-tertiaryTxt text-sm" date={props.date} />

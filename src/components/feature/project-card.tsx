@@ -10,26 +10,18 @@ export default function ProjectCard({
     githubLink,
     liveLink,
     techstack,
-    className,
 }: {
     title: string;
     description: string;
     githubLink?: string;
     liveLink?: string;
     techstack: string[];
-    className?: string;
 }) {
-
-    // console.log("Final className:", twMerge(
-    //     "flex flex-col gap-3 p-4 pt-[11px] rounded-2xl",
-    //     className
-    // ));
 
     return (
         <div
             className={twMerge(
-                "flex flex-col gap-3 p-4 pt-[11px] rounded-2xl",
-                className
+                "flex-1 min-w-[300px] flex flex-col gap-3 p-4 pt-[11px] rounded-2xl bg-gradient-to-br from-[#18171C] to-[#121117]"
             )}
         >
             <h4 className="text-lg font-medium">{title}</h4>

@@ -3,7 +3,7 @@ import BlogPost from "@/components/feature/blog-post"
 
 
 
-export default async function BlogsPage() {
+export default async function BlogPage() {
   const posts = [
     {
       node: {
@@ -40,7 +40,7 @@ export default async function BlogsPage() {
   ]
   return (
     <main className="flex flex-col gap-20">
-      <h1 className={twMerge("text-4xl font-semibold text-center")}>Writings 🖊️</h1>
+      <h1 className={twMerge("text-4xl font-semibold text-center")}>Blog</h1>
       <div className="w-full flex flex-col gap-3">
         {posts.map((post) => (
           <div
