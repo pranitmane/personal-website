@@ -91,7 +91,7 @@ export default async function Home() {
                 category={post.categories.edges[0].node.name}
               />
               <div
-                className="w-full h-[1px] bg-none"
+                className="w-full h-px bg-none"
                 style={{
                   backgroundImage: 'repeating-linear-gradient(to right, transparent, transparent 5px, #404040 4px, #404040 10px)',
                 }}
@@ -106,22 +106,22 @@ export default async function Home() {
 
 function ViewAllButton({ href }: { href: string }) {
   return (
-    <Link href={href} className='border border-borderPrimary bg-transparent hover:bg-borderPrimary rounded-full p-[2px] px-2 self-center text-sm text-secondaryTxt'>View all</Link>
+    <Link href={href} className='border border-border-primary bg-transparent hover:bg-border-primary rounded-full p-[2px] px-2 self-center text-sm text-secondary-txt'>View all</Link>
   )
 }
 
 function Intro() {
   return (
     <section className="w-full flex flex-col gap-1 justify-center" >
-      <h1 className="text-xl">Hi, I am <span className="text-highlightTxt">Pranit</span></h1>
+      <h1 className="text-xl">Hi, I am <span className="text-highlight-txt">Pranit</span></h1>
       <h2 className="text-3xl font-bold">
-        I build <span className="text-highlightTxt">Full-stack</span> apps
+        I build <span className="text-highlight-txt">Full-stack</span> apps
       </h2>
       <p className="" >
-        I am passionate about building scalable software that solves real-world problems. I have worked on a variety of projects, including <span className="text-highlightTxt">Apps, Websites, Chrome extensions,</span> and automation scripts.
+        I am passionate about building scalable software that solves real-world problems. I have worked on a variety of projects, including <span className="text-highlight-txt">Apps, Websites, Chrome extensions,</span> and automation scripts.
       </p>
       <p className="" >
-        Currently, I am exploring <span className="text-highlightTxt">System design & DevOps</span> and enjoy sharing my learnings through blog and on X.
+        Currently, I am exploring <span className="text-highlight-txt">System design & DevOps</span> and enjoy sharing my learnings through blog and on X.
       </p>
     </section>
   )

@@ -41,13 +41,13 @@ export default function NavBar() {
     <nav className="w-full sm:w-[640px] text-sm flex justify-between">
       <p className={pacifico.className}>Pranit</p>
       <div className="flex gap-3">
-        <Link href="/" className={twMerge("text-secondaryTxt hover:text-hyperlinkHover", basePath === "" ? "text-hyperlinkHover" : "")}>
+        <Link href="/" className={twMerge("text-secondary-txt hover:text-hyperlink-hover", basePath === "" ? "text-hyperlink-hover" : "")}>
           home
         </Link>
-        <Link href="/projects" className={twMerge("text-secondaryTxt hover:text-hyperlinkHover", basePath === "projects" ? "text-hyperlinkHover" : "")}>
+        <Link href="/projects" className={twMerge("text-secondary-txt hover:text-hyperlink-hover", basePath === "projects" ? "text-hyperlink-hover" : "")}>
           projects
         </Link>
-        <Link href="/blog" className={twMerge("text-secondaryTxt hover:text-hyperlinkHover", basePath === "blog" ? "text-hyperlinkHover" : "")}>
+        <Link href="/blog" className={twMerge("text-secondary-txt hover:text-hyperlink-hover", basePath === "blog" ? "text-hyperlink-hover" : "")}>
           blog
         </Link>
       </div>

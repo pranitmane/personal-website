@@ -53,7 +53,7 @@ export default async function BlogPage() {
               category={post.node.categories.edges[0].node.name}
             />
             <div
-              className="w-full h-[1px] bg-none"
+              className="w-full h-px bg-none"
               style={{
                 backgroundImage: 'repeating-linear-gradient(to right, transparent, transparent 5px, #404040 4px, #404040 10px)',
               }}

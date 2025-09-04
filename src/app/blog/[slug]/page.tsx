@@ -30,7 +30,7 @@ export default async function BlogPost(data: {
         <main className="w-full">
             <article className="w-full flex flex-col space-y-2">
                 <h1 className="">{post.title}</h1>
-                <ShowDate className="text-tertiaryTxt text-sm" date={post.date} />
+                <ShowDate className="text-tertiary-txt text-sm" date={post.date} />
                 <section
                     dangerouslySetInnerHTML={{ __html: post.content }}
                     className="text-textSecondary post-content flex flex-col gap-5"

@@ -24,13 +24,13 @@ export default function RootLayout({
 
   return (
     <html lang="en" className={GeistSans.className}>
-      <body className="darkTheme flex flex-col gap-24 items-center justify-center p bg-primary text-primaryTxt p-4">
+      <body className="darkTheme flex flex-col gap-24 items-center justify-center p bg-primary text-primary-txt p-4">
         <NavBar />
         <div className='w-full sm:w-[640px]'>
           {children}
         </div>
         <section className='flex flex-col flex-1 justify-end w-full sm:w-[640px] gap-5'>
-          <hr className='border-borderPrimary' />
+          <hr className='border-border-primary' />
           <SocialLinks />
         </section>
         <Analytics />
