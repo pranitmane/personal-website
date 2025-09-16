@@ -1,34 +1,26 @@
+// next.config.ts
+import type { NextConfig } from "next";
 import createMDX from "@next/mdx";
-
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  pageExtensions: ["js", "jsx", "md", "mdx", "ts", "tsx"],
-  experimental: {
-    mdxRs: false, // disable Rust MDX so JS loader can use plugins
-  },
-  images: {
-    remotePatterns: [
-      { protocol: "https", hostname: "picsum.photos", pathname: "/**" },
-
-    ],
-  },
-};
+import type { PluggableList } from "unified";
 
 const withMDX = createMDX({
-  extension: /\.(md|mdx)$/,
+  extension: /\.mdx?$/,
   options: {
-    remarkPlugins: [],
-    rehypePlugins: [
+    remarkPlugins: [] as unknown as PluggableList,
+    rehypePlugins: (
       [
-        "rehype-pretty-code",
-        {
-          keepBackground: false,
-          theme: "one-dark-pro",
-        },
-      ],
-      "rehype-slug",
-    ],
+        ["rehype-pretty-code", { keepBackground: false, theme: "one-dark-pro" }],
+        "rehype-slug",
+      ] as unknown
+    ) as PluggableList, // cast to satisfy TS while keeping strings for serialization
   },
 });
+
+const nextConfig: NextConfig = {
+  pageExtensions: ["js", "jsx", "ts", "tsx", "md", "mdx"],
+  experimental: {
+    mdxRs: false, // webpack + mdx-js loader so JS rehype plugins run
+  },
+};
 
 export default withMDX(nextConfig);
