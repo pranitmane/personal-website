@@ -5,7 +5,6 @@ type BlogPostProps = {
   title: string,
   date: string,
   slug: string,
-  category: string
 }
 
 export default function BlogPost(props: BlogPostProps) {

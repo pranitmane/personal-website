@@ -1,11 +1,12 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Blogs | Pranit Mane',
-  description: 'Blogs on Technology, Programming, and Life.',
+  title: 'Blog | Pranit Mane',
+  description: 'Thoughts, ideas, and explorations.',
+  
 }
 
-export default function BlogsLayout({
+export default function BlogList({
   children,
 }: {
   children: React.ReactNode
