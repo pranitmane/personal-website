@@ -23,11 +23,12 @@ export default function ProjectCard({
         "flex-1 min-w-[300px] flex flex-col gap-3 p-4 pt-[11px] rounded-2xl bg-linear-to-br from-[#18171C]/70 to-[#121117]/70"
       )}
     >
-      <div className="flex flex-row justify-between">
+      <div className="flex flex-row justify-between items-center">
         <h4 className="text-lg font-medium">{title}</h4>
         <div className="w-fit flex flex-row gap-2">
           {githubLink && (
             <Link
+            className="p-[2px] hover:bg-neutral-800 border border-neutral-800 rounded-md"
               href={githubLink}
             >
               <Github size={20}/>
@@ -35,6 +36,7 @@ export default function ProjectCard({
           )}
           {liveLink && (
             <Link
+            className="p-[2px] hover:bg-neutral-800 border border-neutral-800 rounded-md"
               href={liveLink}
             >
               <ExternalLink size={20}/>
@@ -59,7 +61,7 @@ export default function ProjectCard({
 
 {
   /* <LiveLogo
-  size={20}
+  className="hover:bg-white/20 border border-neutral-800 rounded-xl" s22e={20}
   className="transition-transform duration-200 group-hover:scale-90"
   color="currentColor"
 />; */

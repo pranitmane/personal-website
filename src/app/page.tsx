@@ -8,6 +8,8 @@ import BlogPost from "@/components/feature/blog-post";
 import SkillScroll from "@/components/feature/skill-scroll";
 import { projects } from "@/data/projects/projects";
 
+import { ArrowRight } from "lucide-react";
+
 export default async function Home() {
   const allPosts = await getAllPosts();
 
@@ -16,7 +18,7 @@ export default async function Home() {
       <Intro />
       <section className="flex flex-col gap-7">
         <div className="flex flex-row border border-neutral-800 rounded-full py-2 px-4 justify-between items-center">
-          <h3 className={twMerge("text-2xl font-semibold")}>My Work</h3>
+          <h3 className={twMerge("text-lg font-semibold")}>My Work</h3>
           <ViewAllButton href="/projects" />
         </div>
         <div className="flex flex-row flex-wrap gap-3">
@@ -36,7 +38,7 @@ export default async function Home() {
       </section>
       <section className="flex flex-col gap-7">
         <div className="flex flex-row border border-neutral-800 rounded-full py-2 px-4 justify-between items-center">
-          <h3 className={twMerge("text-2xl font-semibold")}>Recent Posts</h3>
+          <h3 className={twMerge("text-lg font-semibold")}>Recent Posts</h3>
           <ViewAllButton href="/blog" />
         </div>
         <div className="w-full flex flex-col gap-3 px-4">
@@ -66,9 +68,9 @@ function ViewAllButton({ href }: { href: string }) {
   return (
     <Link
       href={href}
-      className="border border-border-primary bg-transparent hover:bg-border-primary rounded-full p-[2px] px-2 self-center text-sm text-secondary-txt"
+      className="border hover:rotate-[360deg] transition-all duration-300 border-neutral-800 hover:bg-neutral-800 rounded-full p-[2px] self-center text-sm text-secondary-txt"
     >
-      View all
+      <ArrowRight size={20}/>
     </Link>
   );
 }
@@ -79,7 +81,7 @@ function Intro() {
       <div className="flex flex-row justify-center items-center gap-4 w-full">
         <div className="z-10">
           <p>Hi, I am</p>
-          <h1 className="text-5xl font-bold">Pranit</h1>
+          <h1 className="text-4xl sm:text-5xl font-bold">Pranit</h1>
         </div>
         <div className="w-20 relative h-20 rotate-3 ">
           <Image
@@ -105,7 +107,7 @@ function Intro() {
       <div className="flex flex-row justify-center items-center gap-3 w-full">
         <SkillScroll />
         <div>
-          <h1 className="text-5xl font-bold">fullstack</h1>
+          <h1 className="text-4xl sm:text-5xl font-bold">fullstack</h1>
           <p>developer, based in india</p>
         </div>
       </div>
