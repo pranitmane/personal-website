@@ -70,7 +70,7 @@ function ViewAllButton({ href }: { href: string }) {
       href={href}
       className="border hover:rotate-[360deg] transition-all duration-300 border-neutral-800 hover:bg-neutral-800 rounded-full p-[2px] self-center text-sm text-secondary-txt"
     >
-      <ArrowRight size={20}/>
+      <ArrowRight size={20} />
     </Link>
   );
 }
@@ -107,7 +107,7 @@ function Intro() {
       <div className="flex flex-row justify-center items-center gap-3 w-full">
         <SkillScroll />
         <div>
-          <h1 className="text-4xl sm:text-5xl font-bold">fullstack</h1>
+          <h1 className="text-4xl sm:text-5xl font-bold">Fullstack</h1>
           <p>developer, based in india</p>
         </div>
       </div>
