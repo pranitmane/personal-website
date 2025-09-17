@@ -5,7 +5,7 @@ import { useEffect, useLayoutEffect, useRef, useState } from "react";
 const WORDS = ["Nextjs", "Reactjs", "Javascript", "Typescript","Mongodb","Postgres","Supabase","Expressjs","Docker"];
 
 export default function SkillScroll({
-  speedPxPerSec = 60,
+  speedPxPerSec = 30,
   rowHeight = 20,
 }: {
   speedPxPerSec?: number;
