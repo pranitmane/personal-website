@@ -1,111 +1,68 @@
 "use client";
+
 import Link from "next/link";
-import { useEffect } from "react";
-import { twMerge } from "tailwind-merge";
-import { usePathname, useRouter } from "next/navigation";
-import { Pacifico } from "next/font/google";
+import { usePathname } from "next/navigation";
 import { House, FolderKanban, BookOpenText } from "lucide-react";
 
-const pacifico = Pacifico({
-  subsets: ["latin"],
-  weight: "400",
-});
-
 export default function NavBar() {
-  const currentPathname = usePathname();
-  const basePath = currentPathname.split("/")[1];
-  const router = useRouter();
+  const base = usePathname().split("/")[1];
 
-  const handleKeyPress = (e: any) => {
-    if (e.key === "h") router.push("/");
-    if (e.key === "b") router.push("/blog");
-    if (e.key === "p") router.push("/projects");
-  };
+  const tabs = [
+    { href: "/", key: "home", match: base === "", Icon: House },
+    {
+      href: "/projects",
+      key: "projects",
+      match: base === "projects",
+      Icon: FolderKanban,
+    },
+    { href: "/blog", key: "blog", match: base === "blog", Icon: BookOpenText },
+  ];
 
-  useEffect(() => {
-    const handleKeyPressOnMount = (e: any) => handleKeyPress(e);
-    document.addEventListener("keypress", handleKeyPressOnMount);
-    return () => {
-      document.removeEventListener("keypress", handleKeyPressOnMount);
-    };
-  });
+  // More precise calculation - adjust these values based on actual rendering
+  const buttonWidth = 48; // p-3 creates 48px buttons
+  const gapWidth = 4;     // gap-1 creates 4px gaps
+  const spacing = buttonWidth + gapWidth;
+  
+  const activeIndex = tabs.findIndex(tab => tab.match);
+  const pillTransform = activeIndex >= 0 ? `translateX(${activeIndex * spacing}px)` : 'translateX(0px)';
 
   return (
     <nav className="text-sm">
       <div
         className="
-    relative flex gap-1 p-1 rounded-full bg-white/6
-    supports-[backdrop-filter]:backdrop-blur-xl
-    ring-1 ring-white/10
-    shadow-[0_8px_24px_-8px_rgba(0,0,0,0.45)]
-    before:content-[''] before:absolute before:inset-0 before:rounded-full before:pointer-events-none
-    before:bg-[radial-gradient(120%_100%_at_50%_-10%,rgba(255,255,255,0.16),rgba(255,255,255,0)_55%)]
-    after:content-[''] after:absolute after:inset-0 after:rounded-full after:pointer-events-none
-    after:shadow-[inset_0_1px_0_rgba(255,255,255,0.28),inset_0_-1px_0_rgba(0,0,0,0.22)]
-  "
+          relative z-0 flex gap-1 p-1 rounded-full bg-white/6
+          supports-[backdrop-filter]:backdrop-blur-xl ring-1 ring-white/10
+          shadow-[0_8px_24px_-8px_rgba(0,0,0,0.45)]
+        "
       >
-        <Link
-          href="/"
-          className={twMerge(
-            `
-      relative p-3 rounded-full transition-all duration-200
-      text-neutral-400 hover:text-white
-      ring-1 ring-white/0 hover:ring-white/12
-      bg-transparent hover:bg-white/8
-      `,
-            basePath === "" &&
-              `
-        text-white
-        bg-white/10
-        ring-1 ring-white/16
-        shadow-[inset_0_1px_0_rgba(255,255,255,0.35),0_6px_16px_-10px_rgba(0,0,0,0.55)]
-        `
-          )}
-        >
-          <House className="stroke-[1.5]" />
-        </Link>
+        {/* Background pill */}
+        <div
+          className="absolute top-1 left-1 w-12 h-12 z-10 rounded-full bg-white/10 ring-1 ring-white/16
+                     shadow-[inset_0_1px_0_rgba(255,255,255,0.35),0_6px_16px_-10px_rgba(0,0,0,0.55)]
+                     transition-transform duration-300 ease-out"
+          style={{ 
+            transform: pillTransform,
+            opacity: activeIndex >= 0 ? 1 : 0
+          }}
+        />
 
-        <Link
-          href="/projects"
-          className={twMerge(
-            `
-      relative p-3 rounded-full transition-all duration-200
-      text-neutral-400 hover:text-white
-      ring-1 ring-white/0 hover:ring-white/12
-      bg-transparent hover:bg-white/8
-      `,
-            basePath === "projects" &&
-              `
-        text-white
-        bg-white/10
-        ring-1 ring-white/16
-        shadow-[inset_0_1px_0_rgba(255,255,255,0.35),0_6px_16px_-10px_rgba(0,0,0,0.55)]
-        `
-          )}
-        >
-          <FolderKanban className="stroke-[1.5]" />
-        </Link>
-
-        <Link
-          href="/blog"
-          className={twMerge(
-            `
-      relative p-3 rounded-full transition-all duration-200
-      text-neutral-400 hover:text-white
-      ring-1 ring-white/0 hover:ring-white/12
-      bg-transparent hover:bg-white/8
-      `,
-            basePath === "blog" &&
-              `
-        text-white
-        bg-white/10
-        ring-1 ring-white/16
-        shadow-[inset_0_1px_0_rgba(255,255,255,0.35),0_6px_16px_-10px_rgba(0,0,0,0.55)]
-        `
-          )}
-        >
-          <BookOpenText className="stroke-[1.5]" />
-        </Link>
+        {tabs.map(({ href, key, match, Icon }) => (
+          <div key={key} className="relative">
+            <Link
+              href={href}
+              className="relative z-20 block p-3 rounded-full
+                         text-neutral-400 hover:text-white
+                         ring-1 ring-white/0 hover:ring-white/12
+                         transition-colors duration-200"
+            >
+              <Icon 
+                className={`stroke-[1.5] transition-colors duration-200 ${
+                  match ? "text-white" : ""
+                }`} 
+              />
+            </Link>
+          </div>
+        ))}
       </div>
     </nav>
   );
