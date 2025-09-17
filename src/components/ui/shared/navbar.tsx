@@ -56,7 +56,7 @@ export default function NavBar() {
                          transition-colors duration-200"
             >
               <Icon 
-                className={`stroke-[1.5] transition-colors duration-200 ${
+                className={`transition-colors duration-200 ${
                   match ? "text-white" : ""
                 }`} 
               />
