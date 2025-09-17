@@ -2,7 +2,13 @@
 
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 
-const WORDS = ["Nextjs", "Reactjs", "Javascript", "Typescript","Mongodb","Postgres","Supabase","Expressjs","Docker"];
+const WORDS = ["Nextjs","Reactjs","Javascript","Typescript","Mongodb","Postgres","Supabase","Expressjs","Docker"];
+
+// palette
+const BG_TOP = "#17181d";
+const BG_MID = "#0f1115";
+const BG_BOTTOM = "#0b0d11";
+const RING = "rgba(99,132,255,0.14)";      // soft accent glow
 
 export default function SkillScroll({
   speedPxPerSec = 30,
@@ -44,7 +50,7 @@ export default function SkillScroll({
       const dt = (t - last) / 1000;
       last = t;
       if (!interacting && listH > 0) {
-        setOffset((prev) => ((prev + speedPxPerSec * dt) % listH + listH) % listH);
+        setOffset((p) => ((p + speedPxPerSec * dt) % listH + listH) % listH);
       }
       raf = requestAnimationFrame(tick);
     };
@@ -54,17 +60,17 @@ export default function SkillScroll({
 
   const onWheel = (e: React.WheelEvent) => {
     if (listH <= 0) return;
-    setOffset((prev) => ((prev + e.deltaY) % listH + listH) % listH);
+    setOffset((p) => ((p + e.deltaY) % listH + listH) % listH);
   };
 
-  const startDrag = (clientY: number) => {
-    dragStartY.current = clientY;
+  const startDrag = (y: number) => {
+    dragStartY.current = y;
     dragStartOffset.current = offset;
     setDragging(true);
   };
-  const moveDrag = (clientY: number) => {
+  const moveDrag = (y: number) => {
     if (!dragging || listH <= 0) return;
-    const dy = clientY - dragStartY.current;
+    const dy = y - dragStartY.current;
     const next = dragStartOffset.current - dy;
     setOffset(((next % listH) + listH) % listH);
   };
@@ -73,35 +79,37 @@ export default function SkillScroll({
   const styleFor = (rowTopY: number) => {
     const center = containerH / 2;
     const rowCenterY = rowTopY + rowHeight / 2;
-
     const dNorm = Math.min(Math.abs(rowCenterY - center), center) / center;
     const smooth = (x: number) => x * x * (3 - 2 * x);
     const quant = (x: number, step = 0.02) => Math.round(x / step) * step;
-
     const t = 1 - smooth(quant(dNorm));
     const centerLock = Math.abs(rowCenterY - center) < 0.5;
 
     const scale = 0.85 + 0.4 * t;
-    const alpha = centerLock ? 1 : 0.35 + 0.65 * t;
+    const alpha = centerLock ? 1 : 0.38 + 0.62 * t;  // no hard line at center
     const fontWeight = centerLock ? 800 : 600;
 
     return {
       transform: `scale(${scale})`,
-      color: `rgba(0,0,0,${alpha})`,
+      color: `rgba(255,255,255,${alpha})`,
       fontWeight,
       willChange: "transform",
+      textShadow: "0 0 8px rgba(255,255,255,0.06)",
     } as React.CSSProperties;
   };
 
   return (
-    <div className="inline-flex"> {/* no w-full so it does not stretch */}
+    <div className="inline-flex">
       <div
         ref={containerRef}
-        className="relative overflow-hidden rounded-full border-2 border-neutral-700 select-none h-20 w-32 flex-none shrink-0"
+        className="relative overflow-hidden rounded-full border border-neutral-800 select-none h-20 w-32 flex-none shrink-0"
         style={{
-          background: "linear-gradient(to bottom,#666666,#FFDD99 50%,#666666)",
-          boxShadow:
-            "inset 0 0 0 1px rgba(255,255,255,0.06), inset 0 10px 20px rgba(0,0,0,0.5)",
+          background: `linear-gradient(${BG_TOP}, ${BG_MID} 50%, ${BG_BOTTOM})`,
+          boxShadow: `
+            inset 0 0 0 1px rgba(255,255,255,0.05),
+            inset 0 12px 24px rgba(0,0,0,0.55),
+            0 0 22px ${RING}
+          `,
           cursor: dragging ? "grabbing" : "grab",
         }}
         onWheel={onWheel}
@@ -119,7 +127,13 @@ export default function SkillScroll({
         onTouchMove={(e) => moveDrag(e.touches[0].clientY)}
         onTouchEnd={endDrag}
       >
-        <div className="pointer-events-none absolute inset-0 z-20 bg-gradient-to-b from-black/50 via-transparent to-black/50" />
+        {/* soft vignette, no center line */}
+        <div
+          className="pointer-events-none absolute inset-0 z-20"
+          style={{
+            background:
+              "radial-gradient(120% 60% at 50% 50%, rgba(255,255,255,0.02) 0%, rgba(0,0,0,0.0) 45%, rgba(0,0,0,0.55) 100%), linear-gradient(to bottom, rgba(0,0,0,0.55), transparent 28%, transparent 72%, rgba(0,0,0,0.55))",
+        }} />
 
         <div className="absolute left-0 top-0 w-full" style={{ transform: `translateY(-${offset}px)` }}>
           <div ref={firstListRef}>
@@ -139,8 +153,6 @@ export default function SkillScroll({
             })}
           </div>
         </div>
-
-        <div className="pointer-events-none absolute inset-x-0 top-1/2 -translate-y-1/2 h-px bg-white/50 blur-[0.5px] z-30" />
       </div>
     </div>
   );
@@ -159,7 +171,12 @@ function Row({
     <div className="w-full flex items-center justify-center" style={{ height: rowHeight }}>
       <span
         className="font-sans whitespace-nowrap tracking-tight"
-        style={{ ...style, transition: "transform 0.08s linear", fontSize: 12, lineHeight: 1 }}
+        style={{
+          ...style,
+          transition: "transform 0.08s linear, color 0.12s linear",
+          fontSize: 12,
+          lineHeight: 1,
+        }}
       >
         {word}
       </span>
