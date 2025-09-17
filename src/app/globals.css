@@ -20,65 +20,11 @@
   }
 }
 
-@utility post-content {
-  & a {
-    @apply text-sky-400 hover:underline;
-  }
-  & ul {
-    @apply list-disc list-inside pl-4;
-  }
-  & ol {
-    @apply list-decimal list-inside;
-  }
-  & blockquote {
-    @apply border-l-4 border-neutral-300 pl-4 italic bg-neutral-800 p-2 rounded-sm;
-  }
-  & figure img {
-    @apply rounded-sm pb-2;
-  }
-  & figure figcaption {
-    @apply text-sm text-neutral-500 text-center block;
-  }
-  & h1 {
-    @apply text-4xl font-bold text-neutral-100;
-  }
-  & h2 {
-    @apply text-2xl font-bold text-neutral-100;
-  }
-  & h3 {
-    @apply text-xl font-bold text-neutral-100;
-  }
-  & h4 {
-    @apply text-lg font-bold text-neutral-100;
-  }
-  & h5 {
-    @apply text-base font-bold text-neutral-100;
-  }
-  & hr {
-    @apply border-neutral-300 my-4;
-  }
-  & pre {
-    @apply bg-neutral-800 rounded-sm p-2;
-  }
-  & iframe {
-    @apply rounded-lg w-full;
-  }
-}
 
-@utility bg-gradient-test {
-  @apply bg-linear-to-br from-[#161a1c] to-[#191919];
-}
 
 @layer base{
     .darkTheme{
         --bg-primary:hsla(0, 0%, 0%, 1);
-        --text-primary:hsla(0, 0%, 95%, 1);
-        --text-secondary:hsla(0, 0%,85%, 1);
-        --text-tertiary:hsla(0, 0%, 75%, 1);
-        --text-highlight:hsla(150, 95%, 75%, 1);
-        --text-hyperlink:hsla(210, 100%, 85%, 1);
-        --text-hyperlink-hover:hsl(210, 100%, 75%);
-        --border-primary:hsla(0, 0%, 20%, 1);
     }
 }
 

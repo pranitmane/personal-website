@@ -68,7 +68,7 @@ function ViewAllButton({ href }: { href: string }) {
   return (
     <Link
       href={href}
-      className="border hover:rotate-[360deg] transition-all duration-300 border-neutral-800 hover:bg-neutral-800 rounded-full p-[2px] self-center text-sm text-secondary-txt"
+      className="border hover:rotate-[360deg] transition-all duration-300 border-neutral-700 hover:bg-neutral-700 rounded-full p-[2px] self-center text-sm text-neutral-300"
     >
       <ArrowRight size={20} />
     </Link>
@@ -80,7 +80,7 @@ function Intro() {
     <section className="w-full flex flex-col gap-10 justify-center">
       <div className="flex flex-row justify-center items-center gap-4 w-full">
         <div className="z-10">
-          <p>Hi, I am</p>
+          <p className="text-neutral-300">Hi, I am</p>
           <h1 className="text-4xl sm:text-5xl font-bold">Pranit</h1>
         </div>
         <div className="w-20 relative h-20 rotate-3 ">
@@ -108,7 +108,7 @@ function Intro() {
         <SkillScroll />
         <div>
           <h1 className="text-4xl sm:text-5xl font-bold">Fullstack</h1>
-          <p>developer, based in india</p>
+          <p className="text-neutral-300">developer, based in india</p>
         </div>
       </div>
     </section>

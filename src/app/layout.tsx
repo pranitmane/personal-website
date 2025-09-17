@@ -18,10 +18,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={GeistSans.className}>
-      <body className="darkTheme relative bg-primary text-primary-txt ">
+      <body className="relative bg-black text-white ">
         <div className="flex flex-col min-h-screen items-center justify-begin">{children}</div>
         {/* <section className='flex flex-col flex-1 justify-end w-full sm:w-[640px] gap-5'>
-          <hr className='border-border-primary' />
+          <hr className='border-border-black' />
           <SocialLinks />
         </section> */}
         <div className="fixed bottom-2 left-1/2 -translate-x-1/2 rounded-full">

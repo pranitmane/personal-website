@@ -97,7 +97,7 @@ export default function SkillScroll({
     <div className="inline-flex"> {/* no w-full so it does not stretch */}
       <div
         ref={containerRef}
-        className="relative overflow-hidden rounded-full border-2 border-neutral-800 select-none h-20 w-32 flex-none shrink-0"
+        className="relative overflow-hidden rounded-full border-2 border-neutral-700 select-none h-20 w-32 flex-none shrink-0"
         style={{
           background: "linear-gradient(to bottom,#666666,#FFDD99 50%,#666666)",
           boxShadow:

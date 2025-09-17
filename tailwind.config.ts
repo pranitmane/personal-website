@@ -11,13 +11,6 @@ const config: Config = {
     extend: {
       colors:{
         primary:'var(--bg-primary)',
-        primaryTxt:'var(--text-primary)',
-        secondaryTxt:'var(--text-secondary)',
-        tertiaryTxt:'var(--text-tertiary)',
-        hyperlink:'var(--text-hyperlink)',
-        hyperlinkHover:'var(--text-hyperlink-hover)',
-        highlightTxt:'var(--text-highlight)',
-        borderPrimary:'var(--border-primary)', 
       }
     },
   },

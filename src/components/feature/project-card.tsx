@@ -28,7 +28,7 @@ export default function ProjectCard({
         <div className="w-fit flex flex-row gap-2">
           {githubLink && (
             <Link
-            className="p-[2px] hover:bg-neutral-800 border border-neutral-800 rounded-md"
+            className="p-[2px] hover:bg-slate-800 border border-slate-800 rounded-md"
               href={githubLink}
             >
               <Github size={20}/>
@@ -36,7 +36,7 @@ export default function ProjectCard({
           )}
           {liveLink && (
             <Link
-            className="p-[2px] hover:bg-neutral-800 border border-neutral-800 rounded-md"
+            className="p-[2px] hover:bg-slate-800 border border-slate-800 rounded-md"
               href={liveLink}
             >
               <ExternalLink size={20}/>
@@ -49,7 +49,7 @@ export default function ProjectCard({
         {techstack.map((tech) => (
           <span
             key={tech}
-            className="bg-white/5 text-tertiary-txt text-xs p-1 px-3 rounded-full"
+            className="bg-white/5 text-neutral-300 text-xs p-1 px-3 rounded-full"
           >
             {tech}
           </span>
@@ -61,7 +61,7 @@ export default function ProjectCard({
 
 {
   /* <LiveLogo
-  className="hover:bg-white/20 border border-neutral-800 rounded-xl" s22e={20}
+  className="hover:bg-white/20 border border-slate-800 rounded-xl" s22e={20}
   className="transition-transform duration-200 group-hover:scale-90"
   color="currentColor"
 />; */
