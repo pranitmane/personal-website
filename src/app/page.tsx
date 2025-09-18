@@ -68,7 +68,7 @@ function ViewAllButton({ href }: { href: string }) {
   return (
     <Link
       href={href}
-      className="border hover:rotate-[360deg] transition-all duration-300 border-neutral-700 hover:bg-neutral-700 rounded-full p-[2px] self-center text-sm text-neutral-300"
+      className="border hover:rotate-[360deg] transition-all duration-300 border-neutral-800 bg-neutral-800 rounded-full p-[2px] self-center text-sm text-neutral-300"
     >
       <ArrowRight size={20} />
     </Link>
@@ -77,13 +77,13 @@ function ViewAllButton({ href }: { href: string }) {
 
 function Intro() {
   return (
-    <section className="w-full flex flex-col gap-10 justify-center">
-      <div className="flex flex-row justify-center items-center gap-4 w-full">
+    <section className="w-full flex flex-col items-center gap-10 p-4">
+      <div className="flex flex-row pl-8 justify-center items-center gap-4">
         <div className="z-10">
           <p className="text-neutral-300">Hi, I am</p>
-          <h1 className="text-4xl sm:text-5xl font-bold">Pranit</h1>
+          <h1 className="text-4xl sm:text-5xl font-bold text-orange-100">Pranit</h1>
         </div>
-        <div className="w-20 relative h-20 rotate-3 ">
+        <div className="w-16 relative h-16 rotate-2 hover:rotate-0 transition-all duration-200">
           <Image
             src="/me/1.png"
             alt="Pranit"
@@ -97,17 +97,20 @@ function Intro() {
             src="/me/1.png"
             alt="Pranit"
             className="absolute scale-200 -z-10 pointer-events-none"
-            style={{ objectFit: "cover", filter: "brightness(0.3) blur(20px)" }}
+            style={{
+              objectFit: "cover",
+              filter: "brightness(0.3) blur(20px)",
+            }}
             sizes="40"
             fill
             priority
           />
         </div>
       </div>
-      <div className="flex flex-row justify-center items-center gap-3 w-full">
+      <div className="flex flex-row justify-center items-center">
         <SkillScroll />
         <div>
-          <h1 className="text-4xl sm:text-5xl font-bold">Fullstack</h1>
+          <h1 className="text-4xl sm:text-5xl font-bold text-blue-100">Fullstack</h1>
           <p className="text-neutral-300">developer, based in india</p>
         </div>
       </div>

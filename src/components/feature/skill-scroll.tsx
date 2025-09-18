@@ -99,7 +99,7 @@ export default function SkillScroll({
   };
 
   return (
-    <div className="inline-flex">
+    <div className="inline-flex scale-75">
       <div
         ref={containerRef}
         className="relative overflow-hidden rounded-full border border-neutral-800 select-none h-20 w-32 flex-none shrink-0"
